@@ -1,0 +1,46 @@
+
+<h1>Edit Person :)</h1>
+<div class="col col-sm-12">
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Update!</strong> Your Data has been Update Successfully..
+        <button (click)="closeAlert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <form [formGroup]="editPersons" (ngSubmit)="updateCollection()">
+        <div class="row col-sm-12">
+            <div class="form-group col col-6">
+                <label for="exampleInputEmail1">Firstname</label>
+                <input type="text" formControlName="firstname" class="form-control" placeholder="Enter firstname..">
+                <span *ngIf="firstname?.errors?.['required']" class="text-danger">Firstname is required</span>
+            </div>
+            <div class="form-group col col-6">
+                <label for="exampleInputPassword1">Lastname</label>
+                <input type="text" formControlName="lastname" class="form-control" placeholder="Enter lastname.. ">
+                <span *ngIf="lastname?.errors?.['required']" class="text-danger">Lastname is required</span>
+            </div>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-group col col-6">
+                <label for="exampleInputPassword1">State</label>
+                <input type="text" formControlName="state" class="form-control" placeholder="Enter state.. ">
+                <span *ngIf="state?.errors?.['required']" class="text-danger">State is required</span>
+            </div>
+            <div class="form-group col col-6">
+                <label for="exampleInputPassword1">Age</label>
+                <input type="number" formControlName="age" class="form-control" placeholder="Enter age.. ">
+                <span *ngIf="age?.errors?.['required']" class="text-danger">Age is required</span>
+            </div>
+        </div>
+    
+        <div class="row col-sm-12">
+            <div class=" col col-12">
+                <label for="">city</label>
+                <input type="text" formControlName="city" class="form-control" placeholder="Enter city.. ">
+                <span *ngIf="city?.errors?.['required']" class="text-danger">City is required</span>
+            </div>
+        </div>
+        <br>
+        <div class="row col col-sm-12">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>
